@@ -1,0 +1,44 @@
+# Program-using-class-based-on-percentage-increase-
+coding:
+class PercentageCalculator {
+    private double originalValue;
+    private double newValue;
+    public PercentageCalculator(double originalValue, double newValue) {
+        this.originalValue = originalValue;
+        this.newValue = newValue;
+    }
+    public double calculatePercentageIncrease() {
+        if (originalValue == 0) {
+  System.out.println("Original value cannot be zero.");
+            return 0;
+        }
+        return ((newValue - originalValue) / originalValue) * 100;
+    }
+    public void displayResult() {
+        double percentageIncrease = calculatePercentageIncrease();
+        if (percentageIncrease != 0) {
+            System.out.printf("The percentage increase from %.2f to %.2f is %.2f%%\n", originalValue, newValue, percentageIncrease);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        PercentageCalculator calculator1 = new PercentageCalculator(100, 150);
+        calculator1.displayResult();
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        System.out.print("\nEnter the original value: ");
+        double originalValue = scanner.nextDouble();
+        System.out.print("Enter the new value: ");
+        double newValue = scanner.nextDouble();
+        PercentageCalculator calculator2 = new PercentageCalculator(originalValue, newValue);
+        calculator2.displayResult();
+        scanner.close();
+    }
+}
+
+output:
+The percentage increase from 100.00 to 150.00 is 50.00%
+
+Enter the original value: 200
+Enter the new value: 250
+The percentage increase from 200.00 to 250.00 is 25.00%
